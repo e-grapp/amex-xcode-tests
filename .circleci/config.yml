@@ -8,6 +8,7 @@ jobs:
     parallelism: 20
     steps:
       - checkout
+      - run : whoami
       - run: 
           name: Disable spotlight #https://forums.developer.apple.com/forums/thread/683277
           command: |
