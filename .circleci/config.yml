@@ -14,10 +14,7 @@ jobs:
       - run:
           name: powermetrics
           command: |
-            while true; do
-              sleep 500
               sudo powermetrics --samplers gpu_power
-            done
           background: true
       - run:
           name: build_and_test
