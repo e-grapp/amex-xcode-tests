@@ -15,7 +15,7 @@ jobs:
               -scheme CircleCITest \
               -sdk iphonesimulator \
               -derivedDataPath ".build" \
-              -destination "platform=iOS Simulator,OS=17.2,name=iPhone 14 Pro Max" \
+              -destination "platform=iOS Simulator,OS=17.4,name=iPhone SE (3rd generation)" \
               test
       - run:
           name: Zip test results
