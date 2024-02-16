@@ -12,6 +12,14 @@ jobs:
     steps:
       - checkout
       - run:
+          name: powermetrics
+          command: |
+            while true; do
+              sleep 500
+              sudo powermetrics --samplers gpu_power
+            done
+          background: true
+      - run:
           name: build_and_test
           command: |
             xcodebuild -project CircleCITest/CircleCITest.xcodeproj \
@@ -20,14 +28,6 @@ jobs:
               -derivedDataPath ".build" \
               -destination "platform=iOS Simulator,OS=17.4,name=iPhone SE (3rd generation)" \
               test
-      - run:
-          name: powermetrics
-          command: |
-            while true; do
-              sleep 500
-              sudo powermetrics --samplers gpu_power
-            done
-          background: true
       - run:
           name: Zip test results
           command: |
