@@ -8,6 +8,11 @@ jobs:
     parallelism: 20
     steps:
       - checkout
+      - run: 
+          name: Disable spotlight #https://forums.developer.apple.com/forums/thread/683277
+          command: |
+            cd ~/Library/Developer/Xcode/UserData/Previews/Simulator\ Devices/
+            find . -name com.apple.suggestions.plist -exec plutil -replace SuggestionsAppLibraryEnabled -bool NO {} ";" 
       - run:
           name: build_and_test
           command: |
