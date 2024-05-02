@@ -11,6 +11,7 @@ jobs:
     parallelism: 20
     steps:
       - checkout
+      - run: brew install glances
       - run:
           name: install blackhole audio loopback
           command: |
