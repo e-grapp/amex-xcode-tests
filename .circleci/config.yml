@@ -12,6 +12,7 @@ jobs:
     steps:
       - checkout
       - run: brew install glances
+      - run: brew install htop
       - run:
           name: install blackhole audio loopback
           command: |
